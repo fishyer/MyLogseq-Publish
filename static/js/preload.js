@@ -72,7 +72,7 @@ contextBridge.exposeInMainWorld('apis', {
 
   showItemInFolder (fullpath) {
     if (IS_WIN32) {
-      shell.openPath(path.dirname(fullpath).replaceAll("/", "\\"))
+      shell.openPath(path.dirname(fullpath))
     } else {
       shell.showItemInFolder(fullpath)
     }
@@ -166,10 +166,6 @@ contextBridge.exposeInMainWorld('apis', {
 
   setZoomFactor (factor) {
     webFrame.setZoomFactor(factor)
-  },
-
-  setZoomLevel (level) {
-    webFrame.setZoomLevel(level)
   },
 
   isAbsolutePath: path.isAbsolute.bind(path)
